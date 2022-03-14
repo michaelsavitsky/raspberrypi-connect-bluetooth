@@ -15,14 +15,13 @@ for addr,name in devices:
 		break
 
 if device_addr is not None:
-	print("Device not found. Address:", device_addr)
+	print("Device found. Address:", device_addr)
 else:
 	print("Device not found")
 
 # I found this part on StackOverflow, because of course I did
-subprocess.call("kill -9 `pidof bluetooth-agent`", shell=True)
-
-status = subprocess.call("bluetooth_agent " + passkey + " &", shell=True)
+# subprocess.call("kill -9 `pidof bluetooth-agent`", shell=True)
+# status = subprocess.call("bluetooth-agent " + passkey + " &", shell=True)
 
 try:
 	socket = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
